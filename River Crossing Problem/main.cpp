@@ -8,7 +8,8 @@
 using namespace::std;
 
 class RiverCrossing {
-    int h, s;
+    int h;          // number of Hackers on boat
+    int s;          // number of Serfs on boat
     bool go;
     std::mutex mu;
     std::condition_variable cv, cb;
@@ -17,7 +18,8 @@ public:
     RiverCrossing() {
         s = h = 0;
     }
-
+    
+    /* steps for handling a Linux Hacker */
     void hacker(function<void()> boardHacker) {
         bool isCaptain = false;
 
@@ -46,6 +48,7 @@ public:
         cv.notify_all();
     }
 
+    /* steps for handling a Microsoft Serf */
     void serf(function<void()> boardSerf) {
         bool isCaptain = false;
 
