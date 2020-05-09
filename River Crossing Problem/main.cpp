@@ -92,7 +92,7 @@ void process(std::string input) {
     
     RiverCrossing r;
 
-    //create thread pool
+    //each thread represents a hacker or a serf.
     std::vector<std::thread> pool;
     for (int i=0; i<n; i++) {
         if (input[i] == 'S')
